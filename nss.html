@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Booking</title>
+    <style>
+        body {
+          background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+background-image: url(https://images.hdqwalls.com/wallpapers/emilia-clarke-4k-5k-xi.jpg);            background-size: cover;
+        }
+
+        /* Basic styling for restaurant cards */
+        .restaurant-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0); 
+            overflow: hidden;
+            margin: 30px;
+            width: 300px; /* Three cards per row with margins */
+            float: left;
+            height: 350px;
+        }
+
+        .restaurant-card img {
+       height: 250px;
+       width: 400px;
+       object-fit: cover;
+        }
+
+        .restaurant-details {
+            margin: bottom 10px;;
+            padding: 10px;
+        }
+
+        .restaurant-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-description {
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        /* Side menu styling */
+        .side-menu {
+            top: 10px;
+            width: 0;
+            height: 100%;
+            background-color: hsl(204, 100%, 72%);
+            box-shadow: 2px 0px 5px rgb(106, 235, 255);
+            transition: width 0.3s ease-out;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .side-menu ul {
+            padding: 10px;
+            list-style: none;
+        }
+
+        .side-menu li {
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .menu-button {
+            position: sticky;
+            background-color: #4fdcff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <button class="menu-button" onclick="toggleSideMenu()">☰ </button>
+
+    <div class="side-menu" id="sideMenu">
+        
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Indian</a></li>
+            <li><a href="#">chinese</a></li>
+            <li> <a href="#">Italian</a></li>
+            <li><a href="#">Queries</a></li>
+        </ul>
+    </div>
+
+
+
+    <!-- Repeat the structure for other restaurant cards -->
+    <!-- Restaurant 2: La Bella Italia -->
+    <div class="restaurant-card">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/4d/53/fd/photo0jpg.jpg" alt="La Bella Italia">
+        <div class="restaurant-name">La Bella Italia</div>
+        <div class="restaurant-description">
+            Authentic Italian trattoria serving handmade pasta, wood-fired pizzas, and gelato.
+        </div>
+        <button style="background-color: rgb(0, 0, 0);"  onclick="bookTable('la-bella-italia')">Book a Table</button>
+    </div>
+
+    <!-- Restaurant 3: Sushi Haven -->
+    <div class="restaurant-card">
+        <img src="https://i.pinimg.com/564x/ae/71/2c/ae712c7aa70580b539161c165a9ba856.jpg" alt="Sushi Haven">
+        <div class="restaurant-name">Sushi Haven</div>
+        <div class="restaurant-description">
+            Experience the art of sushi making with our fresh and delightful sushi rolls.
+        </div>
+        <button onclick="bookTable('sushi-haven')">Book a Table</button>
+    </div>
+
+    <!-- Restaurant 4: Le Petit Bistro -->
+    <div class="restaurant-card">
+        <img src="https://th.bing.com/th/id/R.1231d46aefb671c2e0ca0695201c938c?rik=3FdZUNkRt8Cxhg&riu=http%3a%2f%2fblog.lesgrandsmigrateurs.fr%2fwp-content%2fuploads%2f2015%2f04%2fle-petit-bistro-montreal-3-1024x768.jpg&ehk=%2fbcJSfDaeRxBZPX8DI8AdYgmI8RouaonlD1uM%2bK3DuE%3d&risl=&pid=ImgRaw&r=0" alt="Le Petit Bistro">
+        <div class="restaurant-name">Le Petit Bistro</div>
+        <div class="restaurant-description">
+            French-inspired bistro offering a cozy atmosphere and delectable dishes.
+        </div>
+        <button onclick="bookTable('le-petit-bistro')">Book a Table</button>
+    </div>
+
+    <!-- Restaurant 5: Mediterranean Delights -->
+    <div class="restaurant-card">
+        <img src="https://3.bp.blogspot.com/-SOkQONkHYrw/VoDq2_EnwVI/AAAAAAAABf0/y3b6KJOQsyk/s1600/The%2BHaven%2BIpoh%2B%2BMediterranean%2BCuisine%2B%252818%2529.JPG" alt="Mediterranean Delights">
+        <div class="restaurant-name">Mediterranean Delights</div>
+        <div class="restaurant-description">
+            Indulge in the flavors of the Mediterranean with our fresh ingredients and vibrant dishes.
+        </div>
+        <button  onclick="bookTable('mediterranean-delights')">Book a Table</button>
+    </div>
+
+    <!-- Restaurant 6: Thai Orchid -->
+    <div class="restaurant-card">
+        <img src="https://cimg0.ibsrv.net/cimg/www.fodors.com/1000x400_60-1/20/she172lo-191255-Main-Lobby-High-245020.jpg" alt="Thai Orchid">
+        <div class="restaurant-name">Thai Orchid</div>
+        <div class="restaurant-description">
+            Authentic Thai cuisine that balances sweet, sour, salty, and spicy flavors.
+        </div>
+        <button onclick="bookTable('thai-orchid')">Book a Table</button>
+    </div>
+
+    <!-- Restaurant 7: Steakhouse Royale -->
+    <div class="restaurant-card">
+        <img src="https://i.pinimg.com/474x/be/1e/04/be1e041b635392b2a80a98a66e84781a--brazilian-steakhouse-th-birthday.jpg" alt="Steakhouse Royale">
+        <div class="restaurant-name">Steakhouse Royale</div>
+        <div class="restaurant-description">
+            Juicy steaks grilled to perfection with a touch of elegance and sophistication.
+        </div>
+        <button onclick="bookTable('steakhouse-royale')">Book a Table</button>
+    </div>
+        <!-- Restaurant cards -->
+        <div class="restaurant-card">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/24/7b/80/32/caption.jpg" alt="The Spice Garden">
+            <div class="restaurant-details">
+                <div class="restaurant-name">The Spice Garden</div>
+                <div class="restaurant-description">Aromatic Indian cuisine with a modern twist.</div>
+                <button onclick="bookTable('spice-garden')">Book a Table</button>
+            </div>
+        </div>
+
+    <!-- Restaurant 8: Café Serenity -->
+    <div class="restaurant-card">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/13/de/37/ea/photo0jpg.jpg" alt="Café Serenity">
+        <div class="restaurant-name">Café Serenity</div>
+        <div class="restaurant-description">
+            Relax and unwind with a cup of aromatic coffee and freshly baked pastries.
+        </div>
+        <button onclick="bookTable('cafe-serenity')">Book a Table</button>
+    <script>
+        function bookTable(restaurantId) {
+            console.log(`Booking table for ${restaurantId}`);
+            // Implement your booking logic here (e.g., open a reservation form)
+        }
+
+        function toggleSideMenu() {
+            var sideMenu = document.getElementById("sideMenu");
+            sideMenu.style.width = sideMenu.style.width === "200px" ? "0" : "200px";
+        }
+    </script>
+</body>
+</html>
