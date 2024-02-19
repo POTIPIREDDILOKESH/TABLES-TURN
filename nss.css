@@ -1,0 +1,84 @@
+
+        body {
+          background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+background-image: url(https://images.hdqwalls.com/wallpapers/emilia-clarke-4k-5k-xi.jpg);           
+ background-size: cover;
+        }
+
+        /* Basic styling for restaurant cards */
+        .restaurant-card {
+            border: 1px solid #c6b49c;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(227, 255, 14, 0.1);
+            background-color: rgba(255, 234, 0, 0); 
+            overflow: hidden;
+            margin: 30px;
+            width: 300px; /* Three cards per row with margins */
+            float: left;
+            height: 350px;
+           
+        }
+
+        .restaurant-card img {
+       height: 250px;
+       width: 400px;
+       object-fit: cover;
+        }
+
+
+        .restaurant-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-description {
+            font-size: small;
+            margin-top: 5px;
+            background-color:rgba(198, 180, 156,0.3);
+            font-style: italic;
+           
+            
+        }
+
+        /* Side menu styling */
+        .side-menu {
+            top: 10px;
+            width: 0;
+            height: 100%;
+            background-color: hsl(204, 100%, 72%);
+            box-shadow: 2px 0px 5px rgb(106, 235, 255);
+            transition: width 0.3s ease-out;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .side-menu ul {
+            padding: 10px;
+            list-style: none;
+        }
+
+        .side-menu li {
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .menu-button {
+            position: sticky;
+            background-color: #4fdcff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+
+        button{
+            font-family: cursive;
+            border-color: #c6b49c;
+         position: relative;
+        }
+       
+    
